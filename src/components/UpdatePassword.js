@@ -23,17 +23,13 @@ export default function UpdatePassword() {
                 },
             }).then((data) => data.json())
                 .then((res) => {
-                    if (res.message === 'User not found') {
-                        alert(res.message)
-                    }
-                    else if (res.message === 'Internal Server Error') {
+                    if (res.message === 'Internal Server Error') {
                         alert(res.message)
                     }
                     else {
                         navigate("/login")
-                        alert("Succesfully Changed Password!")
+                        alert(res.message)
                     }
-
                 });
         }
         else {
