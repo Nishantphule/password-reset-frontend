@@ -1,1 +1,1 @@
-export const API = 'http://192.168.0.102:3001/users'
+export const API = 'https://password-reset-node-app.onrender.com/users'
