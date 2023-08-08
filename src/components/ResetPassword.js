@@ -19,8 +19,16 @@ export default function ResetPassword() {
             },
         }).then((data) => data.json())
             .then((res) => {
-                alert(res.message)
-                setSendAgain(true)
+                if (res.message === 'Invalid Email') {
+                    alert(res.message)
+                }
+                else if (res.message === 'Internal Server Error') {
+                    alert(res.message)
+                }
+                else {
+                    alert(res.message)
+                    setSendAgain(true)
+                }
             });
 
     }

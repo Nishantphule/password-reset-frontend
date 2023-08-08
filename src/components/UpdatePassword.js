@@ -22,9 +22,18 @@ export default function UpdatePassword() {
                     "Content-Type": "application/json",
                 },
             }).then((data) => data.json())
-                .then(() => {
-                    navigate("/login")
-                    alert("Succesfully Changed Password!")
+                .then((res) => {
+                    if (res.message === 'User not found') {
+                        alert(res.message)
+                    }
+                    else if (res.message === 'Internal Server Error') {
+                        alert(res.message)
+                    }
+                    else {
+                        navigate("/login")
+                        alert("Succesfully Changed Password!")
+                    }
+
                 });
         }
         else {
