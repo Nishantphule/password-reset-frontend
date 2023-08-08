@@ -24,7 +24,7 @@ export default function UpdatePassword() {
             }).then((data) => data.json())
                 .then(() => {
                     navigate("/login")
-                    alert("Succesfull Password Change")
+                    alert("Succesfully Changed Password!")
                 });
         }
         else {
