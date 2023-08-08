@@ -20,8 +20,13 @@ export default function Login() {
             },
         }).then((res) => res.json())
             .then((data) => {
-                navigate("/")
-                alert("Login Successful!")
+                if (data.message === "Invalid credentials") {
+                    alert(data.message)
+                }
+                else {
+                    alert(data.message)
+                    navigate("/")
+                }
             }
             )
     }

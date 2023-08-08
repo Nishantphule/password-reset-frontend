@@ -19,9 +19,18 @@ export default function Register() {
                 "Content-Type": "application/json",
             },
         }).then((data) => data.json())
-            .then(() => {
-                navigate("/login")
-                alert("Succesfull Registration")
+            .then((res) => {
+                if (res.message === 'Enter all details!') {
+                    alert(res.message)
+                }
+                else if (res.message === 'Internal server Error') {
+                    alert(res.message)
+                }
+                else {
+                    navigate("/login")
+                    alert("Succesfull Registration")
+                }
+
             });
 
     }
