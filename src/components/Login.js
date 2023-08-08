@@ -39,21 +39,21 @@ export default function Login() {
                 onChange={e => setLogin({ ...login, password: e.target.value })} />
 
             <Button
-                className="Btn1"
-                variant="outlined"
-                color="info"
-                type="submit"
-                onClick={() => navigate('/resetpassword')}>
-                Forgot Password
-            </Button>
-
-            <Button
                 className="Btn"
                 variant="outlined"
                 color="error"
                 type="cancel"
                 onClick={() => handleSubmit(login)}>
                 Sign In
+            </Button>
+
+            <Button
+                className="Btn1"
+                variant="outlined"
+                color="info"
+                type="submit"
+                onClick={() => navigate('/resetpassword')}>
+                Forgot Password
             </Button>
 
             <p>If dont have an account!
