@@ -11,6 +11,9 @@ export default function ResetPassword() {
     const [sendAgain, setSendAgain] = useState(false);
 
     const handleSubmit = (data) => {
+        alert(`
+        Data Processing... 
+        Please wait for a moment.`)
         fetch(`${API}/resetpassword`, {
             method: "POST",
             body: JSON.stringify(data),

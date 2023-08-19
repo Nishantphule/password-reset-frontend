@@ -12,6 +12,9 @@ export default function Register() {
 
 
     const handleSubmit = (data) => {
+        alert(`
+        Data Processing... 
+        Please wait for a moment.`)
         fetch(`${API}/register`, {
             method: "POST",
             body: JSON.stringify(data),
@@ -48,7 +51,7 @@ export default function Register() {
             </Button>
 
             <p>If already have an account
-                <Button className="Btn" variant="outlined" color="info" type="submit" onClick={() => navigate('/login')}>
+                <Button className="Btn1" color="info" type="submit" onClick={() => navigate('/login')}>
                     Login In
                 </Button></p>
 

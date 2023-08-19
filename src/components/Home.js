@@ -1,10 +1,18 @@
-export default function Home() {
+export default function Home({ token }) {
     return (
         <div className="homePage">
-            <div>
-                <h1 >Welcome to Password Reset App</h1>
-                <p>@copyright Nishant Phule 2023</p>
-            </div>
+            {token ?
+                <div>
+                    <h1>Hii {token}!</h1>
+                    <h1 >Welcome to Password Reset App</h1>
+                    <p>@copyright Nishant Phule 2023</p>
+                </div>
+                :
+                <div>
+                    <h1 >Got to Register Page.If you are new!</h1>
+                    <p>@copyright Nishant Phule 2023</p>
+                </div>}
+
         </div>
     )
 }

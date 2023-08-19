@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { Button, TextField } from "@mui/material";
 import { API } from "../global";
 
-export default function Login() {
+export default function Login({ setToken }) {
     const navigate = useNavigate();
 
     const [login, setLogin] = useState({
@@ -12,6 +12,9 @@ export default function Login() {
 
 
     const handleSubmit = (data) => {
+        alert(`
+        Data Processing... 
+        Please wait for a moment.`)
         fetch(`${API}/login`, {
             method: "POST",
             body: JSON.stringify(data),
@@ -24,6 +27,7 @@ export default function Login() {
                     alert(data.message)
                 }
                 else {
+                    setToken(data.user.username)
                     alert(data.message)
                     navigate("/")
                 }
@@ -53,7 +57,7 @@ export default function Login() {
             </Button>
 
             <Button
-                className="Btn1"
+                className="Btn"
                 variant="outlined"
                 color="info"
                 type="submit"
@@ -61,10 +65,9 @@ export default function Login() {
                 Forgot Password
             </Button>
 
-            <p>If dont have an account!
+            <p>If dont have an account !
                 <Button
                     className="Btn1"
-                    variant="outlined"
                     color="info"
                     type="submit"
                     onClick={() => navigate('/register')}>

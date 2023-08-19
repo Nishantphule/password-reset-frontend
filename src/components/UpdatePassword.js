@@ -15,6 +15,9 @@ export default function UpdatePassword() {
 
     const handleSubmit = (data) => {
         if (data.password === data.confirmPassword) {
+            alert(`
+        Data Processing... 
+        Please wait for a moment.`)
             fetch(`${API}/updatepassword/${id}`, {
                 method: "PUT",
                 body: JSON.stringify(data),

@@ -24,36 +24,58 @@ function App() {
     },
   });
 
+  const [token, setToken] = useState('');
+
+  const logout = () => {
+    setToken('')
+    alert("Logged Out Successfully!")
+    navigate('/login')
+  }
+
   return (
     <ThemeProvider theme={Theme}>
       <Paper elevation={4} style={{ minHeight: "100vh", borderRadius: "0px" }}>
 
-        <AppBar>
-          <Toolbar>
-            <Button startIcon={<HomeIcon />} variant="inherit" onClick={() => navigate("/")}>
-              Home
-            </Button>
-            <Button variant="inherit" onClick={() => navigate("/register")}>
-              Register
-            </Button>
-            <Button variant="inherit" onClick={() => navigate("/login")}>
-              Login
-            </Button>
-            <Button sx={{ marginLeft: 'auto' }} variant="inherit" onClick={() => setMode(mode === "light" ? "dark" : "light")}>
-              {mode === "light" ? <Brightness4Icon /> : <Brightness7Icon />}{mode === "light" ? "dark" : "light"} MODE
-            </Button>
-          </Toolbar>
-        </AppBar>
-
+        {!token ?
+          <AppBar>
+            <Toolbar>
+              <Button startIcon={<HomeIcon />} variant="inherit" onClick={() => navigate("/")}>
+                Home
+              </Button>
+              <Button variant="inherit" onClick={() => navigate("/register")}>
+                Register
+              </Button>
+              <Button variant="inherit" onClick={() => navigate("/login")}>
+                Login
+              </Button>
+              <Button sx={{ marginLeft: 'auto' }} variant="inherit" onClick={() => setMode(mode === "light" ? "dark" : "light")}>
+                {mode === "light" ? <Brightness4Icon /> : <Brightness7Icon />}{mode === "light" ? "dark" : "light"} MODE
+              </Button>
+            </Toolbar>
+          </AppBar>
+          :
+          <AppBar>
+            <Toolbar>
+              <Button startIcon={<HomeIcon />} variant="inherit" onClick={() => navigate("/")}>
+                Home
+              </Button>
+              <Button variant="inherit" onClick={() => logout()}>
+                Logout
+              </Button>
+              <Button sx={{ marginLeft: 'auto' }} variant="inherit" onClick={() => setMode(mode === "light" ? "dark" : "light")}>
+                {mode === "light" ? <Brightness4Icon /> : <Brightness7Icon />}{mode === "light" ? "dark" : "light"} MODE
+              </Button>
+            </Toolbar>
+          </AppBar>}
 
         <div className='App'>
 
           <Routes>
 
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home token={token} />} />
 
             <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login setToken={setToken} />} />
             <Route path="/resetpassword" element={<ResetPassword />} />
             <Route path="/updatepassword/:id" element={<UpdatePassword />} />
 

@@ -1,1 +1,1 @@
-export const API = 'https://password-reset-node-app.onrender.com/users'
+export const API = 'https://password-reset-backend-production.up.railway.app/users'
