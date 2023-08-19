@@ -9,7 +9,7 @@ export default function Home({ token }) {
                 </div>
                 :
                 <div>
-                    <h1 >Got to Register Page.If you are new!</h1>
+                    <h1 >Go to Register Page,If you are new or Login</h1>
                     <p>@copyright Nishant Phule 2023</p>
                 </div>}
 
